@@ -1,0 +1,32 @@
+{
+  "name": "triunity-protocol",
+  "version": "2.1.0",
+  "description": "TriUnity Protocol - Enterprise blockchain infrastructure with advanced consensus mechanisms",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev --listen 3000",
+    "build": "echo 'Build complete'",
+    "deploy": "vercel --prod",
+    "preview": "vercel"
+  },
+  "keywords": [
+    "blockchain",
+    "enterprise",
+    "infrastructure",
+    "consensus",
+    "quantum-security",
+    "professional"
+  ],
+  "author": {
+    "name": "TriUnity Protocol Team",
+    "email": "developers@triunity.dev"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/triunity-protocol.git"
+  },
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}
