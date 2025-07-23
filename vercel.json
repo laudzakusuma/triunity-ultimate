@@ -1,20 +1,7 @@
 {
   "version": 2,
   "name": "triunity-protocol",
-  "description": "TriUnity Protocol - Enterprise blockchain infrastructure with advanced consensus mechanisms",
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node",
-      "config": {
-        "runtime": "nodejs18.x"
-      }
-    }
-  ],
+  "description": "TriUnity Protocol - Enterprise blockchain infrastructure",
   "routes": [
     {
       "src": "/api/metrics",
@@ -49,13 +36,6 @@
       }
     }
   ],
-  "functions": {
-    "api/metrics.js": {
-      "maxDuration": 10,
-      "memory": 256,
-      "runtime": "nodejs18.x"
-    }
-  },
   "headers": [
     {
       "source": "/api/(.*)",
