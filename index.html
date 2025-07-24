@@ -4,43 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TriUnity Protocol - Advanced Blockchain Infrastructure</title>
-    <meta name="description" content="Revolutionary blockchain technology with AI consensus, quantum security, and unlimited scalability">
+    <meta name="description" content="Revolutionary blockchain technology with AI consensus, quantum security, and unlimited scalability for enterprise applications">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%2250,10 90,50 50,90 10,50%22 fill=%22%23000%22/></svg>">
     
-    <!-- Three.js for advanced 3D visualizations -->
+    <!-- Three.js for 3D visualizations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         :root {
-            /* Advanced Color System */
+            /* Color System */
             --background-primary: #0a0a0f;
             --background-secondary: #12121a;
             --background-tertiary: #1a1a25;
-            --surface-primary: rgba(255, 255, 255, 0.05);
-            --surface-secondary: rgba(255, 255, 255, 0.08);
-            --surface-tertiary: rgba(255, 255, 255, 0.12);
+            --surface-primary: rgba(255, 255, 255, 0.03);
+            --surface-secondary: rgba(255, 255, 255, 0.06);
+            --surface-tertiary: rgba(255, 255, 255, 0.10);
             
             --text-primary: #ffffff;
             --text-secondary: #b8bcc8;
             --text-muted: #868b96;
             --text-accent: #64ffda;
             
-            --accent-primary: #6366f1;
+            --accent-primary: #3b82f6;
             --accent-secondary: #8b5cf6;
             --accent-tertiary: #06b6d4;
-            --accent-quantum: #ec4899;
             
-            --border-primary: rgba(255, 255, 255, 0.1);
-            --border-secondary: rgba(255, 255, 255, 0.2);
+            --border-primary: rgba(255, 255, 255, 0.08);
+            --border-secondary: rgba(255, 255, 255, 0.15);
             
-            /* Advanced Gradients */
+            /* Gradients */
             --gradient-primary: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-tertiary) 100%);
             --gradient-surface: linear-gradient(135deg, var(--surface-primary) 0%, var(--surface-secondary) 100%);
-            --gradient-glow: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
             
-            /* Spacing System */
+            /* Spacing */
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
             --space-md: 1rem;
@@ -51,7 +49,7 @@
             --space-4xl: 6rem;
             --space-5xl: 8rem;
             
-            /* Typography Scale */
+            /* Typography */
             --text-xs: 0.75rem;
             --text-sm: 0.875rem;
             --text-base: 1rem;
@@ -76,13 +74,12 @@
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
+            --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.15);
             
             /* Transitions */
             --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         * {
@@ -105,7 +102,7 @@
             position: relative;
         }
 
-        /* Advanced Background 3D System */
+        /* 3D Background System */
         .background-3d {
             position: fixed;
             top: 0;
@@ -119,10 +116,10 @@
         #background-canvas {
             width: 100%;
             height: 100%;
-            opacity: 0.6;
+            opacity: 0.4;
         }
 
-        /* Advanced Navigation */
+        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -214,7 +211,7 @@
             gap: var(--space-md);
         }
 
-        /* Advanced Button System */
+        /* Button System */
         .btn {
             padding: var(--space-sm) var(--space-lg);
             border: 1px solid var(--border-primary);
@@ -291,7 +288,7 @@
             padding: 0 var(--space-xl);
         }
 
-        /* Home Page */
+        /* Hero Section */
         .hero {
             min-height: calc(100vh - 100px);
             display: flex;
@@ -321,7 +318,7 @@
             letter-spacing: 0.1em;
         }
 
-        .pulse-dot {
+        .status-dot {
             width: 8px;
             height: 8px;
             background: var(--text-accent);
@@ -366,15 +363,15 @@
             flex-wrap: wrap;
         }
 
-        /* Feature Grid */
-        .feature-grid {
+        /* Card Components */
+        .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: var(--space-2xl);
             margin-top: var(--space-5xl);
         }
 
-        .feature-card {
+        .card {
             background: var(--surface-primary);
             backdrop-filter: blur(20px);
             border: 1px solid var(--border-primary);
@@ -385,7 +382,7 @@
             overflow: hidden;
         }
 
-        .feature-card::before {
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -397,42 +394,34 @@
             transition: transform var(--transition-normal);
         }
 
-        .feature-card:hover {
+        .card:hover {
             transform: translateY(-8px);
             background: var(--surface-secondary);
             border-color: var(--border-secondary);
             box-shadow: var(--shadow-xl);
         }
 
-        .feature-card:hover::before {
+        .card:hover::before {
             transform: scaleX(1);
         }
 
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-2xl);
+        .card-header {
             margin-bottom: var(--space-lg);
         }
 
-        .feature-title {
+        .card-title {
             font-size: var(--text-xl);
             font-weight: 700;
             margin-bottom: var(--space-md);
             color: var(--text-primary);
         }
 
-        .feature-description {
+        .card-description {
             color: var(--text-secondary);
             line-height: 1.7;
         }
 
-        /* Metrics Section */
+        /* Metrics */
         .metrics-section {
             padding: var(--space-5xl) 0;
         }
@@ -478,7 +467,7 @@
             font-weight: 600;
         }
 
-        /* API Demo Section */
+        /* API Demo */
         .api-demo {
             background: var(--surface-primary);
             backdrop-filter: blur(20px);
@@ -650,7 +639,7 @@
                 font-size: var(--text-4xl);
             }
 
-            .feature-grid {
+            .card-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -745,7 +734,7 @@
     </style>
 </head>
 <body>
-    <!-- Advanced 3D Background -->
+    <!-- 3D Background -->
     <div class="background-3d">
         <canvas id="background-canvas"></canvas>
     </div>
@@ -774,14 +763,14 @@
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-badge">
-                        <div class="pulse-dot"></div>
+                        <div class="status-dot"></div>
                         <span>Revolutionary Technology</span>
                     </div>
-                    <h1>The Future of Blockchain Infrastructure</h1>
-                    <p class="hero-subtitle">Advanced consensus mechanisms for mission-critical applications</p>
+                    <h1>Advanced Blockchain Infrastructure</h1>
+                    <p class="hero-subtitle">Enterprise-grade consensus mechanisms for mission-critical applications</p>
                     <p class="hero-description">
-                        TriUnity Protocol delivers enterprise-grade blockchain infrastructure with AI-powered consensus, 
-                        quantum-resistant security, and unlimited scalability for the most demanding business applications.
+                        TriUnity Protocol delivers cutting-edge blockchain infrastructure with AI-powered consensus, 
+                        quantum-resistant security, and unlimited scalability designed for the most demanding enterprise applications.
                     </p>
                     <div class="hero-actions">
                         <a href="#" class="btn btn-primary" onclick="showPage('api')">Explore Live Demo</a>
@@ -815,29 +804,32 @@
         </section>
 
         <section class="container">
-            <div class="feature-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🧠</div>
-                    <h3 class="feature-title">AI Consensus Engine</h3>
-                    <p class="feature-description">
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">AI Consensus Engine</h3>
+                    </div>
+                    <p class="card-description">
                         Machine learning algorithms dynamically optimize consensus mechanisms based on real-time 
-                        network conditions for optimal performance.
+                        network conditions for optimal performance and security.
                     </p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🔐</div>
-                    <h3 class="feature-title">Quantum-Resistant Security</h3>
-                    <p class="feature-description">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Quantum-Resistant Security</h3>
+                    </div>
+                    <p class="card-description">
                         Post-quantum cryptographic algorithms provide future-proof protection against both 
                         classical and quantum computing attacks.
                     </p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Unlimited Scalability</h3>
-                    <p class="feature-description">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Unlimited Scalability</h3>
+                    </div>
+                    <p class="card-description">
                         Advanced sharding and parallel processing enable horizontal scaling without 
-                        compromising security or decentralization.
+                        compromising security or decentralization principles.
                     </p>
                 </div>
             </div>
@@ -854,51 +846,57 @@
                 </p>
             </div>
             
-            <div class="feature-grid">
-                <div class="feature-card slide-in-left">
-                    <div class="feature-icon">🧠</div>
-                    <h3 class="feature-title">AI Consensus Engine</h3>
-                    <p class="feature-description">
+            <div class="card-grid">
+                <div class="card slide-in-left">
+                    <div class="card-header">
+                        <h3 class="card-title">AI Consensus Engine</h3>
+                    </div>
+                    <p class="card-description">
                         Our proprietary AI system continuously analyzes network conditions and automatically 
                         adjusts consensus parameters to maintain optimal performance across varying loads.
                     </p>
                 </div>
-                <div class="feature-card slide-in-right">
-                    <div class="feature-icon">🔐</div>
-                    <h3 class="feature-title">Quantum-Resistant Security</h3>
-                    <p class="feature-description">
+                <div class="card slide-in-right">
+                    <div class="card-header">
+                        <h3 class="card-title">Quantum-Resistant Security</h3>
+                    </div>
+                    <p class="card-description">
                         Built with post-quantum cryptographic algorithms including lattice-based encryption 
                         and hash-based signatures to protect against future quantum attacks.
                     </p>
                 </div>
-                <div class="feature-card slide-in-left">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">Parallel Processing Architecture</h3>
-                    <p class="feature-description">
+                <div class="card slide-in-left">
+                    <div class="card-header">
+                        <h3 class="card-title">Parallel Processing Architecture</h3>
+                    </div>
+                    <p class="card-description">
                         Multi-threaded transaction processing with intelligent sharding enables unlimited 
                         horizontal scaling while maintaining security guarantees.
                     </p>
                 </div>
-                <div class="feature-card slide-in-right">
-                    <div class="feature-icon">🌐</div>
-                    <h3 class="feature-title">Global Network Mesh</h3>
-                    <p class="feature-description">
+                <div class="card slide-in-right">
+                    <div class="card-header">
+                        <h3 class="card-title">Global Network Mesh</h3>
+                    </div>
+                    <p class="card-description">
                         Distributed network topology with intelligent routing optimizes performance based on 
                         geographic distribution and real-time network conditions.
                     </p>
                 </div>
-                <div class="feature-card slide-in-left">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Real-time Analytics</h3>
-                    <p class="feature-description">
-                        Comprehensive monitoring and analytics platform provides deep insights into network 
+                <div class="card slide-in-left">
+                    <div class="card-header">
+                        <h3 class="card-title">Real-time Analytics</h3>
+                    </div>
+                    <p class="card-description">
+                        Comprehensive monitoring and analytics platform providing deep insights into network 
                         performance, security metrics, and optimization opportunities.
                     </p>
                 </div>
-                <div class="feature-card slide-in-right">
-                    <div class="feature-icon">🔄</div>
-                    <h3 class="feature-title">Adaptive Governance</h3>
-                    <p class="feature-description">
+                <div class="card slide-in-right">
+                    <div class="card-header">
+                        <h3 class="card-title">Adaptive Governance</h3>
+                    </div>
+                    <p class="card-description">
                         AI-assisted governance mechanisms enable seamless protocol upgrades and community-driven 
                         decision making without network disruption.
                     </p>
@@ -944,27 +942,30 @@
                 </div>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">📈</div>
-                    <h3 class="feature-title">Linear Scalability</h3>
-                    <p class="feature-description">
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Linear Scalability</h3>
+                    </div>
+                    <p class="card-description">
                         Performance scales linearly with network size, maintaining consistent throughput 
                         and latency regardless of validator count or transaction volume.
                     </p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🎯</div>
-                    <h3 class="feature-title">Predictable Performance</h3>
-                    <p class="feature-description">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Predictable Performance</h3>
+                    </div>
+                    <p class="card-description">
                         AI consensus engine ensures consistent performance characteristics with minimal 
                         variance in block times and transaction confirmation speeds.
                     </p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🔧</div>
-                    <h3 class="feature-title">Dynamic Optimization</h3>
-                    <p class="feature-description">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Dynamic Optimization</h3>
+                    </div>
+                    <p class="card-description">
                         Real-time performance optimization automatically adjusts network parameters 
                         based on current conditions to maintain peak efficiency.
                     </p>
@@ -1019,27 +1020,30 @@
                 </div>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">📡</div>
-                    <h3 class="feature-title">Real-time Monitoring</h3>
-                    <p class="feature-description">
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Real-time Monitoring</h3>
+                    </div>
+                    <p class="card-description">
                         Comprehensive real-time monitoring of all network metrics including transaction 
                         throughput, validator status, and consensus performance.
                     </p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Performance Analytics</h3>
-                    <p class="feature-description">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Performance Analytics</h3>
+                    </div>
+                    <p class="card-description">
                         Advanced analytics platform providing detailed insights into network performance 
                         trends and optimization opportunities.
                     </p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🔍</div>
-                    <h3 class="feature-title">Network Transparency</h3>
-                    <p class="feature-description">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Network Transparency</h3>
+                    </div>
+                    <p class="card-description">
                         Complete transparency into network operations with public metrics and 
                         verifiable performance data available to all stakeholders.
                     </p>
@@ -1093,27 +1097,30 @@
                 </form>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🏢</div>
-                    <h3 class="feature-title">Enterprise Solutions</h3>
-                    <p class="feature-description">
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Enterprise Solutions</h3>
+                    </div>
+                    <p class="card-description">
                         Custom blockchain infrastructure solutions designed for large-scale enterprise 
                         applications with dedicated support and SLA guarantees.
                     </p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">🤝</div>
-                    <h3 class="feature-title">Partnership Program</h3>
-                    <p class="feature-description">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Partnership Program</h3>
+                    </div>
+                    <p class="card-description">
                         Join our partner ecosystem to integrate TriUnity technology into your products 
                         and services with comprehensive technical and marketing support.
                     </p>
                 </div>
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">💡</div>
-                    <h3 class="feature-title">Innovation Labs</h3>
-                    <p class="feature-description">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Innovation Labs</h3>
+                    </div>
+                    <p class="card-description">
                         Collaborate with our research team to develop next-generation blockchain solutions 
                         and explore cutting-edge applications of our technology.
                     </p>
@@ -1135,7 +1142,7 @@
                 <a href="#" class="footer-link">Terms of Service</a>
             </div>
             <p class="footer-text">
-                &copy; 2024 TriUnity Protocol. Advanced blockchain infrastructure for the enterprise.
+                © 2024 TriUnity Protocol. Advanced blockchain infrastructure for enterprise applications.
             </p>
             <p class="footer-text">
                 Enterprise: enterprise@triunity.dev | Support: support@triunity.dev
@@ -1165,7 +1172,7 @@
             initPageSystem();
         }
 
-        // Advanced Navigation System
+        // Navigation System
         function initNavbar() {
             const navbar = document.getElementById('navbar');
             
@@ -1178,9 +1185,8 @@
             });
         }
 
-        // Page System with Smooth Transitions
+        // Page System
         function initPageSystem() {
-            // Set initial page
             showPage('home');
         }
 
@@ -1198,27 +1204,25 @@
                 page.classList.remove('active');
             });
 
-            // Show target page with delay for smooth transition
+            // Show target page
             setTimeout(() => {
                 document.getElementById(pageId).classList.add('active');
                 currentPage = pageId;
                 
-                // Trigger animations for new page
                 triggerPageAnimations(pageId);
                 
-                // Re-initialize counter animations for performance page
                 if (pageId === 'performance') {
                     setTimeout(() => initCounterAnimations(), 300);
                 }
                 
-                // Initialize live metrics for API page
                 if (pageId === 'api') {
                     setTimeout(() => initLiveMetrics(), 300);
                 }
             }, 150);
 
-            // Prevent default link behavior
-            event?.preventDefault();
+            if (event) {
+                event.preventDefault();
+            }
             return false;
         }
 
@@ -1234,7 +1238,7 @@
             });
         }
 
-        // Advanced 3D Background System
+        // 3D Background System
         function initBackground3D() {
             const canvas = document.getElementById('background-canvas');
             if (!canvas) return;
@@ -1250,100 +1254,90 @@
             backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
             backgroundRenderer.setClearColor(0x000000, 0);
 
-            // Create floating geometric shapes
+            // Create floating shapes
             const shapes = [];
             const geometries = [
                 new THREE.OctahedronGeometry(1, 0),
                 new THREE.TetrahedronGeometry(1.2, 0),
-                new THREE.IcosahedronGeometry(0.8, 0),
-                new THREE.DodecahedronGeometry(0.9, 0)
+                new THREE.IcosahedronGeometry(0.8, 0)
             ];
 
-            // Create multiple floating shapes
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 12; i++) {
                 const geometry = geometries[Math.floor(Math.random() * geometries.length)];
                 const material = new THREE.MeshBasicMaterial({ 
                     color: new THREE.Color().setHSL(
-                        0.6 + Math.random() * 0.2, // Blue to purple range
+                        0.6 + Math.random() * 0.2,
                         0.7 + Math.random() * 0.3,
-                        0.4 + Math.random() * 0.3
+                        0.3 + Math.random() * 0.2
                     ),
                     wireframe: true,
                     transparent: true,
-                    opacity: 0.1 + Math.random() * 0.2
+                    opacity: 0.08 + Math.random() * 0.12
                 });
                 
                 const shape = new THREE.Mesh(geometry, material);
                 
-                // Random positioning
                 shape.position.set(
-                    (Math.random() - 0.5) * 100,
-                    (Math.random() - 0.5) * 100,
-                    (Math.random() - 0.5) * 100
+                    (Math.random() - 0.5) * 80,
+                    (Math.random() - 0.5) * 80,
+                    (Math.random() - 0.5) * 80
                 );
                 
-                // Random rotation speeds
                 shape.userData = {
                     rotationSpeed: {
-                        x: (Math.random() - 0.5) * 0.02,
-                        y: (Math.random() - 0.5) * 0.02,
-                        z: (Math.random() - 0.5) * 0.02
+                        x: (Math.random() - 0.5) * 0.01,
+                        y: (Math.random() - 0.5) * 0.01,
+                        z: (Math.random() - 0.5) * 0.01
                     },
-                    floatSpeed: Math.random() * 0.01 + 0.005,
-                    floatRange: Math.random() * 20 + 10
+                    floatSpeed: Math.random() * 0.008 + 0.003
                 };
                 
                 backgroundScene.add(shape);
                 shapes.push(shape);
             }
 
-            // Create particle system
+            // Particle system
             const particleGeometry = new THREE.BufferGeometry();
-            const particleCount = 200;
+            const particleCount = 150;
             const positions = new Float32Array(particleCount * 3);
             
             for (let i = 0; i < particleCount * 3; i++) {
-                positions[i] = (Math.random() - 0.5) * 200;
+                positions[i] = (Math.random() - 0.5) * 150;
             }
             
             particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             
             const particleMaterial = new THREE.PointsMaterial({
-                color: 0x6366f1,
-                size: 0.5,
+                color: 0x3b82f6,
+                size: 0.3,
                 transparent: true,
-                opacity: 0.3
+                opacity: 0.2
             });
             
             const particles = new THREE.Points(particleGeometry, particleMaterial);
             backgroundScene.add(particles);
 
-            backgroundCamera.position.z = 50;
+            backgroundCamera.position.z = 40;
 
             function animateBackground() {
                 backgroundAnimationId = requestAnimationFrame(animateBackground);
 
                 const time = Date.now() * 0.001;
 
-                // Animate shapes
                 shapes.forEach((shape, index) => {
-                    // Rotation
                     shape.rotation.x += shape.userData.rotationSpeed.x;
                     shape.rotation.y += shape.userData.rotationSpeed.y;
                     shape.rotation.z += shape.userData.rotationSpeed.z;
                     
-                    // Floating motion
-                    shape.position.y += Math.sin(time * shape.userData.floatSpeed + index) * 0.1;
-                    shape.position.x += Math.cos(time * shape.userData.floatSpeed + index) * 0.05;
+                    shape.position.y += Math.sin(time * shape.userData.floatSpeed + index) * 0.05;
+                    shape.position.x += Math.cos(time * shape.userData.floatSpeed + index) * 0.03;
                 });
 
-                // Animate particles
-                particles.rotation.y += 0.0005;
-                particles.rotation.x += 0.0003;
+                particles.rotation.y += 0.0003;
+                particles.rotation.x += 0.0002;
 
-                // Dynamic camera movement
-                backgroundCamera.position.x = Math.sin(time * 0.0003) * 10;
-                backgroundCamera.position.y = Math.cos(time * 0.0002) * 5;
+                backgroundCamera.position.x = Math.sin(time * 0.0002) * 8;
+                backgroundCamera.position.y = Math.cos(time * 0.00015) * 4;
                 backgroundCamera.lookAt(0, 0, 0);
 
                 backgroundRenderer.render(backgroundScene, backgroundCamera);
@@ -1351,7 +1345,6 @@
 
             animateBackground();
 
-            // Handle resize
             window.addEventListener('resize', () => {
                 backgroundCamera.aspect = window.innerWidth / window.innerHeight;
                 backgroundCamera.updateProjectionMatrix();
@@ -1359,7 +1352,7 @@
             });
         }
 
-        // Intersection Observer for animations
+        // Intersection Observer
         function initIntersectionObserver() {
             const observerOptions = {
                 threshold: 0.1,
@@ -1417,7 +1410,7 @@
             }, 20);
         }
 
-        // Live Metrics System
+        // Live Metrics
         function initLiveMetrics() {
             if (currentPage === 'api') {
                 fetchMetrics();
@@ -1540,10 +1533,6 @@
             event.preventDefault();
             
             const form = event.target;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
-            
-            // Simulate form submission
             const submitButton = form.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
             
@@ -1566,14 +1555,14 @@
             if (autoRefreshInterval) clearInterval(autoRefreshInterval);
         });
 
-        // Add mouse interaction effects
+        // Mouse interaction
         document.addEventListener('mousemove', (e) => {
             const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
             const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
             
             if (backgroundCamera) {
-                backgroundCamera.position.x += (mouseX * 5 - backgroundCamera.position.x) * 0.01;
-                backgroundCamera.position.y += (mouseY * 5 - backgroundCamera.position.y) * 0.01;
+                backgroundCamera.position.x += (mouseX * 3 - backgroundCamera.position.x) * 0.008;
+                backgroundCamera.position.y += (mouseY * 3 - backgroundCamera.position.y) * 0.008;
             }
         });
     </script>
