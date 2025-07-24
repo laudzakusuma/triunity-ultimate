@@ -1,11 +1,11 @@
-// api/metrics.js - TriUnity Protocol Clean API
+// api/metrics.js - TriUnity Protocol Enhanced API with Multiple Endpoints
 
 export default async function handler(req, res) {
     // Security headers
     const headers = {
         'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
         'Cache-Control': 's-maxage=5, stale-while-revalidate=10',
         'X-Content-Type-Options': 'nosniff',
         'X-Frame-Options': 'DENY',
@@ -21,24 +21,61 @@ export default async function handler(req, res) {
         return;
     }
 
-    if (req.method !== 'GET') {
-        return res.status(405).json({
-            success: false,
-            error: 'Method not allowed'
-        });
-    }
-
     try {
-        const metrics = generateLiveMetrics();
+        // Parse the URL to determine the endpoint
+        const { url } = req;
+        const endpoint = url.split('/api/')[1]?.split('?')[0];
+
+        let responseData;
         
+        switch (endpoint) {
+            case 'metrics':
+                responseData = generateLiveMetrics();
+                break;
+            case 'status':
+                responseData = generateSystemStatus();
+                break;
+            case 'validators':
+                responseData = generateValidatorData();
+                break;
+            case 'blocks':
+                responseData = generateBlockData();
+                break;
+            case 'health':
+                responseData = generateHealthCheck();
+                break;
+            case 'transactions':
+                if (req.method === 'POST') {
+                    responseData = handleTransactionSubmission(req);
+                } else {
+                    responseData = generateTransactionData();
+                }
+                break;
+            default:
+                return res.status(404).json({
+                    success: false,
+                    error: 'Endpoint not found',
+                    available_endpoints: [
+                        '/api/metrics',
+                        '/api/status', 
+                        '/api/validators',
+                        '/api/blocks',
+                        '/api/health',
+                        '/api/transactions'
+                    ]
+                });
+        }
+
         res.status(200).json({
             success: true,
             timestamp: new Date().toISOString(),
-            data: metrics,
+            endpoint: endpoint,
+            data: responseData,
             metadata: {
                 api_version: '2.2.0',
                 response_time_ms: Math.round(Math.random() * 50 + 10),
-                cache_status: Math.random() > 0.7 ? 'HIT' : 'MISS'
+                cache_status: Math.random() > 0.7 ? 'HIT' : 'MISS',
+                request_id: generateRequestId()
             }
         });
         
@@ -46,7 +83,8 @@ export default async function handler(req, res) {
         console.error('API Error:', error);
         res.status(500).json({
             success: false,
-            error: 'Internal server error'
+            error: 'Internal server error',
+            timestamp: new Date().toISOString()
         });
     }
 }
@@ -113,6 +151,115 @@ function generateLiveMetrics() {
     return formatMetrics(metrics);
 }
 
+function generateSystemStatus() {
+    return {
+        status: 'operational',
+        uptime_hours: 8760 * 2.5, // 2.5 years
+        last_incident: '2024-01-15T00:00:00Z',
+        components: {
+            api: 'operational',
+            consensus: 'operational',
+            network: 'operational',
+            database: 'operational',
+            monitoring: 'operational'
+        },
+        maintenance_scheduled: false,
+        next_maintenance: '2024-08-15T02:00:00Z'
+    };
+}
+
+function generateValidatorData() {
+    const validators = [];
+    const validatorCount = 247 + Math.floor(Math.random() * 50);
+    
+    for (let i = 0; i < Math.min(20, validatorCount); i++) {
+        validators.push({
+            id: `validator_${i + 1}`,
+            address: generateRandomAddress(),
+            stake: Math.floor(Math.random() * 1000000 + 100000),
+            commission: Math.floor(Math.random() * 10 + 1),
+            uptime: Math.min(100, 95 + Math.random() * 5),
+            status: Math.random() > 0.1 ? 'active' : 'inactive',
+            last_block_signed: Math.floor(Date.now() / 1000) - Math.floor(Math.random() * 300)
+        });
+    }
+    
+    return {
+        total_validators: validatorCount,
+        active_validators: Math.floor(validatorCount * 0.95),
+        validators: validators
+    };
+}
+
+function generateBlockData() {
+    const blocks = [];
+    const currentHeight = 19847392 + Math.floor(Date.now() / 85000);
+    
+    for (let i = 0; i < 10; i++) {
+        blocks.push({
+            height: currentHeight - i,
+            hash: generateRandomHash(),
+            timestamp: Math.floor(Date.now() / 1000) - (i * 85),
+            transactions: Math.floor(Math.random() * 1000 + 100),
+            validator: generateRandomAddress(),
+            size_bytes: Math.floor(Math.random() * 50000 + 10000),
+            gas_used: Math.floor(Math.random() * 10000000 + 1000000)
+        });
+    }
+    
+    return {
+        latest_block: currentHeight,
+        blocks: blocks
+    };
+}
+
+function generateHealthCheck() {
+    return {
+        status: 'healthy',
+        checks: {
+            api_response_time: Math.floor(Math.random() * 50 + 10),
+            database_connection: 'ok',
+            consensus_participation: 'ok',
+            network_connectivity: 'ok',
+            memory_usage: Math.floor(Math.random() * 30 + 40),
+            cpu_usage: Math.floor(Math.random() * 40 + 20)
+        },
+        last_check: new Date().toISOString()
+    };
+}
+
+function generateTransactionData() {
+    const transactions = [];
+    
+    for (let i = 0; i < 20; i++) {
+        transactions.push({
+            hash: generateRandomHash(),
+            from: generateRandomAddress(),
+            to: generateRandomAddress(),
+            amount: Math.floor(Math.random() * 1000000) / 1000000,
+            gas_price: Math.floor(Math.random() * 100 + 20),
+            status: Math.random() > 0.05 ? 'success' : 'pending',
+            timestamp: Math.floor(Date.now() / 1000) - Math.floor(Math.random() * 3600)
+        });
+    }
+    
+    return {
+        recent_transactions: transactions,
+        total_transactions_24h: Math.floor(Math.random() * 1000000 + 500000)
+    };
+}
+
+function handleTransactionSubmission(req) {
+    // Simulate transaction submission
+    return {
+        transaction_hash: generateRandomHash(),
+        status: 'submitted',
+        estimated_confirmation_time: '85ms',
+        gas_estimate: Math.floor(Math.random() * 100000 + 21000),
+        message: 'Transaction submitted successfully'
+    };
+}
+
 function determineAIMode(variation) {
     const currentHour = new Date().getUTCHours();
     const isBusinessHours = currentHour >= 8 && currentHour <= 18;
@@ -139,4 +286,16 @@ function formatMetrics(metrics) {
     metrics.total_transactions = Math.floor(metrics.total_transactions);
     
     return metrics;
+}
+
+function generateRequestId() {
+    return 'req_' + Math.random().toString(36).substr(2, 12) + '_' + Date.now().toString(36);
+}
+
+function generateRandomAddress() {
+    return '0x' + Math.random().toString(16).substr(2, 40);
+}
+
+function generateRandomHash() {
+    return '0x' + Math.random().toString(16).substr(2, 64);
 }

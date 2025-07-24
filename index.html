@@ -617,7 +617,31 @@
             font-size: var(--text-sm);
         }
 
-        /* Responsive Design */
+        /* Page-specific styles */
+        #privacy .card, #terms .card, #docs .card {
+            min-height: 200px;
+        }
+
+        #docs .live-metric .live-value {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        #docs .live-metric .live-label {
+            color: var(--text-secondary);
+        }
+
+        /* Enhanced card hover for legal pages */
+        #privacy .card:hover, #terms .card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Documentation specific styling */
+        #docs .api-demo h3 {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+        }
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -751,7 +775,7 @@
                 <li><a href="#" class="nav-link" onclick="showPage('contact')" data-page="contact">Contact</a></li>
             </ul>
             <div class="nav-cta">
-                <a href="#" class="btn" onclick="showPage('api')">Documentation</a>
+                <a href="#" class="btn" onclick="showPage('docs')">Documentation</a>
                 <a href="#" class="btn btn-primary" onclick="showPage('contact')">Get Started</a>
             </div>
         </div>
@@ -1129,6 +1153,256 @@
         </div>
     </div>
 
+    <!-- Privacy Policy Page -->
+    <div id="privacy" class="page">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Privacy Policy</h2>
+                <p class="section-subtitle">
+                    How we collect, use, and protect your information
+                </p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Information Collection</h3>
+                    </div>
+                    <p class="card-description">
+                        We collect information you provide directly to us, such as when you create an account, 
+                        contact us for support, or participate in our services. This may include your name, 
+                        email address, company information, and communication preferences.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Usage</h3>
+                    </div>
+                    <p class="card-description">
+                        We use the information we collect to provide, maintain, and improve our services, 
+                        process transactions, send you technical notices and support messages, and communicate 
+                        with you about products, services, and promotional offers.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Data Protection</h3>
+                    </div>
+                    <p class="card-description">
+                        We implement appropriate technical and organizational security measures to protect 
+                        your personal information against unauthorized access, alteration, disclosure, or 
+                        destruction. We use encryption and secure protocols for all data transmission.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Third-Party Services</h3>
+                    </div>
+                    <p class="card-description">
+                        We may use third-party services for analytics, hosting, and communication. These 
+                        services have their own privacy policies, and we encourage you to review them. 
+                        We do not sell or rent your personal information to third parties.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Cookies and Tracking</h3>
+                    </div>
+                    <p class="card-description">
+                        We use cookies and similar tracking technologies to collect information about your 
+                        interaction with our website. You can control cookie settings through your browser 
+                        preferences. Some features may not function properly if cookies are disabled.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Your Rights</h3>
+                    </div>
+                    <p class="card-description">
+                        You have the right to access, update, or delete your personal information. You may 
+                        also opt out of certain communications. For any privacy-related requests or concerns, 
+                        please contact us at privacy@triunity.dev.
+                    </p>
+                </div>
+            </div>
+
+            <div class="api-demo fade-in" style="margin-top: var(--space-4xl);">
+                <h3 style="margin-bottom: var(--space-lg); color: var(--text-primary); text-align: center;">Contact Privacy Officer</h3>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: var(--space-xl);">
+                    For any questions about this Privacy Policy or our data practices, please contact our Privacy Officer.
+                </p>
+                <div style="text-align: center;">
+                    <a href="#" class="btn btn-primary" onclick="showPage('contact')">Contact Privacy Officer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Page -->
+    <div id="terms" class="page">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Terms of Service</h2>
+                <p class="section-subtitle">
+                    Legal terms and conditions for using TriUnity Protocol services
+                </p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Service Agreement</h3>
+                    </div>
+                    <p class="card-description">
+                        By accessing or using TriUnity Protocol services, you agree to be bound by these Terms 
+                        of Service and all applicable laws and regulations. If you do not agree with any of 
+                        these terms, you are prohibited from using our services.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Acceptable Use</h3>
+                    </div>
+                    <p class="card-description">
+                        You may use our services only for lawful purposes and in accordance with these Terms. 
+                        You agree not to use the services in any way that could damage, disable, overburden, 
+                        or impair our infrastructure or interfere with others' use of the services.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Intellectual Property</h3>
+                    </div>
+                    <p class="card-description">
+                        The TriUnity Protocol technology, including all software, documentation, and related 
+                        materials, is protected by copyright, trademark, and other intellectual property laws. 
+                        All rights not expressly granted are reserved by TriUnity Protocol.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Service Availability</h3>
+                    </div>
+                    <p class="card-description">
+                        While we strive to maintain high service availability, we do not guarantee that our 
+                        services will be available at all times. We may suspend or terminate services for 
+                        maintenance, updates, or other operational reasons with appropriate notice.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Limitation of Liability</h3>
+                    </div>
+                    <p class="card-description">
+                        To the maximum extent permitted by law, TriUnity Protocol shall not be liable for any 
+                        indirect, incidental, special, consequential, or punitive damages, or any loss of 
+                        profits or revenues, whether incurred directly or indirectly.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Governing Law</h3>
+                    </div>
+                    <p class="card-description">
+                        These Terms shall be governed by and construed in accordance with the laws of the 
+                        jurisdiction in which TriUnity Protocol is incorporated, without regard to its 
+                        conflict of law provisions.
+                    </p>
+                </div>
+            </div>
+
+            <div class="api-demo fade-in" style="margin-top: var(--space-4xl);">
+                <h3 style="margin-bottom: var(--space-lg); color: var(--text-primary); text-align: center;">Questions About Terms</h3>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: var(--space-xl);">
+                    If you have any questions about these Terms of Service, please contact our legal team.
+                </p>
+                <div style="text-align: center;">
+                    <a href="#" class="btn btn-primary" onclick="showPage('contact')">Contact Legal Team</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Documentation Page -->
+    <div id="docs" class="page">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">API Documentation</h2>
+                <p class="section-subtitle">
+                    Complete guide to integrating with TriUnity Protocol APIs
+                </p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Getting Started</h3>
+                    </div>
+                    <p class="card-description">
+                        The TriUnity Protocol API provides programmatic access to blockchain metrics, 
+                        transaction data, and network status. All API endpoints use HTTPS and return 
+                        JSON responses with consistent error handling.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Authentication</h3>
+                    </div>
+                    <p class="card-description">
+                        API access requires authentication using API keys. Contact our enterprise team 
+                        to obtain your API credentials. Include your API key in the Authorization header 
+                        for all requests.
+                    </p>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-header">
+                        <h3 class="card-title">Rate Limiting</h3>
+                    </div>
+                    <p class="card-description">
+                        API endpoints are rate limited to ensure fair usage and system stability. 
+                        Default limits are 1000 requests per hour for authenticated users. Enterprise 
+                        plans include higher rate limits and priority support.
+                    </p>
+                </div>
+            </div>
+
+            <div class="api-demo fade-in">
+                <h3 style="margin-bottom: var(--space-lg); color: var(--text-primary);">Available Endpoints</h3>
+                <div class="live-metrics">
+                    <div class="live-metric">
+                        <div class="live-value">GET /api/metrics</div>
+                        <div class="live-label">Network Metrics</div>
+                    </div>
+                    <div class="live-metric">
+                        <div class="live-value">GET /api/status</div>
+                        <div class="live-label">System Status</div>
+                    </div>
+                    <div class="live-metric">
+                        <div class="live-value">GET /api/validators</div>
+                        <div class="live-label">Validator Data</div>
+                    </div>
+                    <div class="live-metric">
+                        <div class="live-value">GET /api/blocks</div>
+                        <div class="live-label">Block Information</div>
+                    </div>
+                    <div class="live-metric">
+                        <div class="live-value">POST /api/transactions</div>
+                        <div class="live-label">Submit Transaction</div>
+                    </div>
+                    <div class="live-metric">
+                        <div class="live-value">GET /api/health</div>
+                        <div class="live-label">Health Check</div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: var(--space-xl);">
+                    <a href="#" class="btn btn-primary" onclick="showPage('contact')">Request API Access</a>
+                    <a href="#" class="btn" onclick="showPage('api')">Try Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1138,14 +1412,15 @@
                 <a href="#" class="footer-link" onclick="showPage('performance')">Performance</a>
                 <a href="#" class="footer-link" onclick="showPage('api')">API</a>
                 <a href="#" class="footer-link" onclick="showPage('contact')">Contact</a>
-                <a href="#" class="footer-link">Privacy Policy</a>
-                <a href="#" class="footer-link">Terms of Service</a>
+                <a href="#" class="footer-link" onclick="showPage('docs')">Documentation</a>
+                <a href="#" class="footer-link" onclick="showPage('privacy')">Privacy Policy</a>
+                <a href="#" class="footer-link" onclick="showPage('terms')">Terms of Service</a>
             </div>
             <p class="footer-text">
                 © 2024 TriUnity Protocol. Advanced blockchain infrastructure for enterprise applications.
             </p>
             <p class="footer-text">
-                Enterprise: enterprise@triunity.dev | Support: support@triunity.dev
+                Enterprise: enterprise@triunity.dev | Support: support@triunity.dev | Legal: legal@triunity.dev
             </p>
         </div>
     </footer>
@@ -1191,6 +1466,14 @@
         }
 
         function showPage(pageId) {
+            // Valid page IDs
+            const validPages = ['home', 'technology', 'performance', 'api', 'contact', 'privacy', 'terms', 'docs'];
+            
+            if (!validPages.includes(pageId)) {
+                console.warn('Invalid page ID:', pageId);
+                return;
+            }
+
             // Update navigation active state
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
@@ -1206,17 +1489,20 @@
 
             // Show target page
             setTimeout(() => {
-                document.getElementById(pageId).classList.add('active');
-                currentPage = pageId;
-                
-                triggerPageAnimations(pageId);
-                
-                if (pageId === 'performance') {
-                    setTimeout(() => initCounterAnimations(), 300);
-                }
-                
-                if (pageId === 'api') {
-                    setTimeout(() => initLiveMetrics(), 300);
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    currentPage = pageId;
+                    
+                    triggerPageAnimations(pageId);
+                    
+                    if (pageId === 'performance') {
+                        setTimeout(() => initCounterAnimations(), 300);
+                    }
+                    
+                    if (pageId === 'api') {
+                        setTimeout(() => initLiveMetrics(), 300);
+                    }
                 }
             }, 150);
 
