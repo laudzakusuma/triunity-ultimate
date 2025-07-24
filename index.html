@@ -3,34 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TriUnity Protocol - Enterprise Blockchain Infrastructure</title>
-    <meta name="description" content="TriUnity Protocol provides enterprise-grade blockchain infrastructure with advanced consensus mechanisms, quantum-resistant security, and unparalleled scalability.">
-    <meta property="og:title" content="TriUnity Protocol - Enterprise Blockchain Infrastructure">
-    <meta property="og:description" content="Advanced blockchain technology for enterprise applications with AI consensus and quantum security.">
-    <meta property="og:type" content="website">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect x=%2230%22 y=%2230%22 width=%2240%22 height=%2240%22 fill=%22%23000%22/></svg>">
+    <title>TriUnity Protocol - Advanced Blockchain Infrastructure</title>
+    <meta name="description" content="Revolutionary blockchain technology with AI consensus, quantum security, and unlimited scalability">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><polygon points=%2250,10 90,50 50,90 10,50%22 fill=%22%23000%22/></svg>">
     
-    <!-- Three.js for 3D visualizations -->
+    <!-- Three.js for advanced 3D visualizations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         :root {
-            /* Professional Color System */
-            --primary-navy: #1a1a2e;
-            --secondary-navy: #16213e;
-            --accent-blue: #0052cc;
-            --light-blue: #4a90e2;
-            --text-primary: #ffffff;
-            --text-secondary: #b3b3b3;
-            --text-muted: #808080;
-            --border-color: #333333;
-            --background-primary: #0a0a0a;
-            --background-secondary: #1a1a1a;
-            --background-tertiary: #2a2a2a;
+            /* Advanced Color System */
+            --background-primary: #0a0a0f;
+            --background-secondary: #12121a;
+            --background-tertiary: #1a1a25;
+            --surface-primary: rgba(255, 255, 255, 0.05);
+            --surface-secondary: rgba(255, 255, 255, 0.08);
+            --surface-tertiary: rgba(255, 255, 255, 0.12);
             
-            /* Spacing */
+            --text-primary: #ffffff;
+            --text-secondary: #b8bcc8;
+            --text-muted: #868b96;
+            --text-accent: #64ffda;
+            
+            --accent-primary: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --accent-tertiary: #06b6d4;
+            --accent-quantum: #ec4899;
+            
+            --border-primary: rgba(255, 255, 255, 0.1);
+            --border-secondary: rgba(255, 255, 255, 0.2);
+            
+            /* Advanced Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-tertiary) 100%);
+            --gradient-surface: linear-gradient(135deg, var(--surface-primary) 0%, var(--surface-secondary) 100%);
+            --gradient-glow: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+            
+            /* Spacing System */
             --space-xs: 0.25rem;
             --space-sm: 0.5rem;
             --space-md: 1rem;
@@ -39,31 +49,40 @@
             --space-2xl: 3rem;
             --space-3xl: 4rem;
             --space-4xl: 6rem;
+            --space-5xl: 8rem;
             
-            /* Typography */
-            --font-size-sm: 0.875rem;
-            --font-size-base: 1rem;
-            --font-size-lg: 1.125rem;
-            --font-size-xl: 1.25rem;
-            --font-size-2xl: 1.5rem;
-            --font-size-3xl: 2rem;
-            --font-size-4xl: 2.5rem;
-            --font-size-5xl: 3rem;
+            /* Typography Scale */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
             
-            /* Borders */
-            --border-radius: 0.375rem;
-            --border-radius-lg: 0.5rem;
-            --border-radius-xl: 0.75rem;
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
             
             /* Shadows */
-            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.3);
             
             /* Transitions */
-            --transition-fast: 0.15s ease;
-            --transition-normal: 0.3s ease;
-            --transition-slow: 0.5s ease;
+            --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         * {
@@ -74,53 +93,88 @@
 
         html {
             scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--background-primary);
             overflow-x: hidden;
         }
 
-        /* Header */
-        .header {
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--background-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Advanced Background 3D System */
+        .background-3d {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #background-canvas {
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+
+        /* Advanced Navigation */
+        .navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-primary);
             z-index: 1000;
-            padding: var(--space-md) 0;
             transition: all var(--transition-normal);
+            padding: var(--space-lg) 0;
         }
 
-        .header.scrolled {
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(20px);
+        .navbar.scrolled {
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(30px) saturate(200%);
+            padding: var(--space-md) 0;
+            box-shadow: var(--shadow-lg);
         }
 
-        .container {
-            max-width: 1200px;
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 var(--space-xl);
-        }
-
-        .nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: var(--font-size-xl);
-            font-weight: 700;
+            font-size: var(--text-xl);
+            font-weight: 800;
             color: var(--text-primary);
             text-decoration: none;
             letter-spacing: -0.025em;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width var(--transition-normal);
+        }
+
+        .logo:hover::after {
+            width: 100%;
         }
 
         .nav-links {
@@ -129,18 +183,30 @@
             gap: var(--space-2xl);
         }
 
-        .nav-links a {
+        .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: color var(--transition-fast);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            position: relative;
+            transition: all var(--transition-normal);
+            cursor: pointer;
         }
 
-        .nav-links a:hover {
+        .nav-link.active {
             color: var(--text-primary);
+            background: var(--surface-primary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--surface-secondary);
+            transform: translateY(-2px);
         }
 
         .nav-cta {
@@ -148,100 +214,227 @@
             gap: var(--space-md);
         }
 
-        /* Buttons */
+        /* Advanced Button System */
         .btn {
             padding: var(--space-sm) var(--space-lg);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-primary);
             background: transparent;
             color: var(--text-secondary);
             text-decoration: none;
-            border-radius: var(--border-radius);
-            font-size: var(--font-size-sm);
-            font-weight: 500;
-            transition: all var(--transition-fast);
-            display: inline-block;
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left var(--transition-slow);
+            z-index: -1;
         }
 
         .btn:hover {
-            background: var(--background-secondary);
             color: var(--text-primary);
-            border-color: var(--accent-blue);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn:hover::before {
+            left: 0;
         }
 
         .btn-primary {
-            background: var(--accent-blue);
+            background: var(--gradient-primary);
+            border-color: transparent;
             color: var(--text-primary);
-            border-color: var(--accent-blue);
         }
 
-        .btn-primary:hover {
-            background: var(--light-blue);
-            border-color: var(--light-blue);
-        }
-
-        /* Hero Section */
-        .hero {
+        /* Page System */
+        .page {
             min-height: 100vh;
+            padding-top: 100px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all var(--transition-slow);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .page.active {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-xl);
+        }
+
+        /* Home Page */
+        .hero {
+            min-height: calc(100vh - 100px);
             display: flex;
             align-items: center;
-            padding: var(--space-4xl) 0;
-            background: linear-gradient(135deg, var(--background-primary) 0%, var(--primary-navy) 100%);
+            position: relative;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-4xl);
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
             align-items: center;
+            gap: var(--space-sm);
+            background: var(--surface-primary);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-primary);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            color: var(--text-accent);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: var(--space-2xl);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .hero-content h1 {
-            font-size: var(--font-size-5xl);
-            font-weight: 700;
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--text-accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .hero h1 {
+            font-size: var(--text-6xl);
+            font-weight: 800;
             line-height: 1.1;
             margin-bottom: var(--space-lg);
-            letter-spacing: -0.025em;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-subtitle {
-            font-size: var(--font-size-xl);
+            font-size: var(--text-xl);
             color: var(--text-secondary);
             margin-bottom: var(--space-xl);
             font-weight: 300;
         }
 
         .hero-description {
-            font-size: var(--font-size-lg);
+            font-size: var(--text-lg);
             color: var(--text-muted);
             margin-bottom: var(--space-2xl);
-            line-height: 1.7;
+            line-height: 1.8;
+            max-width: 600px;
         }
 
         .hero-actions {
             display: flex;
             gap: var(--space-lg);
+            flex-wrap: wrap;
         }
 
-        .hero-visual {
-            height: 500px;
-            background: var(--background-secondary);
-            border-radius: var(--border-radius-xl);
-            border: 1px solid var(--border-color);
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-2xl);
+            margin-top: var(--space-5xl);
+        }
+
+        .feature-card {
+            background: var(--surface-primary);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            transition: all var(--transition-normal);
             position: relative;
+            overflow: hidden;
         }
 
-        #hero-canvas {
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            border-radius: var(--border-radius-xl);
+            height: 2px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            background: var(--surface-secondary);
+            border-color: var(--border-secondary);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .feature-title {
+            font-size: var(--text-xl);
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
         /* Metrics Section */
-        .metrics {
-            padding: var(--space-4xl) 0;
-            background: var(--background-secondary);
+        .metrics-section {
+            padding: var(--space-5xl) 0;
         }
 
         .metrics-grid {
@@ -251,103 +444,51 @@
         }
 
         .metric-card {
-            background: var(--background-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-lg);
+            background: var(--surface-primary);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
             padding: var(--space-2xl);
             text-align: center;
             transition: all var(--transition-normal);
+            position: relative;
         }
 
         .metric-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-blue);
+            transform: translateY(-8px) scale(1.02);
+            background: var(--surface-secondary);
+            box-shadow: var(--shadow-glow);
         }
 
         .metric-value {
-            font-size: var(--font-size-4xl);
-            font-weight: 700;
-            color: var(--accent-blue);
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: var(--space-sm);
         }
 
         .metric-label {
             color: var(--text-secondary);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-weight: 500;
-        }
-
-        /* Technology Section */
-        .technology {
-            padding: var(--space-4xl) 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--space-4xl);
-        }
-
-        .section-title {
-            font-size: var(--font-size-4xl);
-            font-weight: 700;
-            margin-bottom: var(--space-lg);
-            letter-spacing: -0.025em;
-        }
-
-        .section-subtitle {
-            font-size: var(--font-size-lg);
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-2xl);
-        }
-
-        .tech-card {
-            background: var(--background-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-lg);
-            padding: var(--space-2xl);
-            transition: all var(--transition-normal);
-        }
-
-        .tech-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-blue);
-        }
-
-        .tech-title {
-            font-size: var(--font-size-xl);
             font-weight: 600;
-            margin-bottom: var(--space-md);
-        }
-
-        .tech-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
         }
 
         /* API Demo Section */
         .api-demo {
-            padding: var(--space-4xl) 0;
-            background: var(--background-secondary);
+            background: var(--surface-primary);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-3xl);
+            margin-top: var(--space-3xl);
         }
 
-        .demo-container {
-            background: var(--background-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius-lg);
-            padding: var(--space-2xl);
-            margin-top: var(--space-2xl);
-        }
-
-        .metrics-live {
+        .live-metrics {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: var(--space-lg);
@@ -356,22 +497,28 @@
 
         .live-metric {
             background: var(--background-primary);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
             padding: var(--space-lg);
             text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .live-metric:hover {
+            background: var(--surface-primary);
+            transform: scale(1.05);
         }
 
         .live-value {
-            font-size: var(--font-size-2xl);
-            font-weight: 600;
-            color: var(--accent-blue);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--text-accent);
             margin-bottom: var(--space-xs);
         }
 
         .live-label {
             color: var(--text-secondary);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -383,11 +530,77 @@
             flex-wrap: wrap;
         }
 
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+        }
+
+        .section-title {
+            font-size: var(--text-5xl);
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: var(--space-lg);
+            background: var(--surface-primary);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-lg);
+            color: var(--text-primary);
+            font-size: var(--text-base);
+            transition: all var(--transition-normal);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: var(--surface-secondary);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
         /* Footer */
         .footer {
-            background: var(--primary-navy);
-            border-top: 1px solid var(--border-color);
-            padding: var(--space-2xl) 0;
+            padding: var(--space-3xl) 0;
+            border-top: 1px solid var(--border-primary);
+            margin-top: var(--space-5xl);
             text-align: center;
         }
 
@@ -399,20 +612,20 @@
             flex-wrap: wrap;
         }
 
-        .footer-links a {
+        .footer-link {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
             transition: color var(--transition-fast);
         }
 
-        .footer-links a:hover {
-            color: var(--text-primary);
+        .footer-link:hover {
+            color: var(--text-accent);
         }
 
         .footer-text {
             color: var(--text-muted);
-            font-size: var(--font-size-sm);
+            font-size: var(--text-sm);
         }
 
         /* Responsive Design */
@@ -421,37 +634,41 @@
                 display: none;
             }
 
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-2xl);
-            }
-
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: var(--font-size-4xl);
-            }
-
-            .tech-grid {
-                grid-template-columns: 1fr;
+            .nav-container {
+                padding: 0 var(--space-md);
             }
 
             .container {
                 padding: 0 var(--space-md);
             }
 
-            .hero-actions {
-                justify-content: center;
+            .hero h1 {
+                font-size: var(--text-5xl);
+            }
+
+            .section-title {
+                font-size: var(--text-4xl);
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
             }
 
             .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .metrics-live {
+            .live-metrics {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .demo-controls {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -465,106 +682,170 @@
             }
 
             .btn {
-                font-size: 0.75rem;
+                font-size: var(--text-xs);
                 padding: var(--space-xs) var(--space-md);
             }
         }
 
-        /* Loading states */
+        /* Loading States */
         .loading {
             opacity: 0.6;
-            animation: pulse 1.5s ease-in-out infinite;
+            animation: loading-pulse 1.5s ease-in-out infinite;
         }
 
-        @keyframes pulse {
+        @keyframes loading-pulse {
             0%, 100% { opacity: 0.6; }
             50% { opacity: 1; }
         }
 
-        /* Animation classes */
+        /* Animation Classes */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">TriUnity Protocol</a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#technology">Technology</a></li>
-                    <li><a href="#performance">Performance</a></li>
-                    <li><a href="#api">API</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="nav-cta">
-                    <a href="#api" class="btn">Documentation</a>
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <!-- Advanced 3D Background -->
+    <div class="background-3d">
+        <canvas id="background-canvas"></canvas>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-grid">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">TriUnity Protocol</a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" onclick="showPage('home')" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('technology')" data-page="technology">Technology</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('performance')" data-page="performance">Performance</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('api')" data-page="api">Live Demo</a></li>
+                <li><a href="#" class="nav-link" onclick="showPage('contact')" data-page="contact">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#" class="btn" onclick="showPage('api')">Documentation</a>
+                <a href="#" class="btn btn-primary" onclick="showPage('contact')">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="container">
                 <div class="hero-content">
-                    <h1>Enterprise Blockchain Infrastructure</h1>
+                    <div class="hero-badge">
+                        <div class="pulse-dot"></div>
+                        <span>Revolutionary Technology</span>
+                    </div>
+                    <h1>The Future of Blockchain Infrastructure</h1>
                     <p class="hero-subtitle">Advanced consensus mechanisms for mission-critical applications</p>
                     <p class="hero-description">
-                        TriUnity Protocol delivers enterprise-grade blockchain infrastructure 
-                        with AI-powered consensus, quantum-resistant security, and unlimited 
-                        scalability for demanding business applications.
+                        TriUnity Protocol delivers enterprise-grade blockchain infrastructure with AI-powered consensus, 
+                        quantum-resistant security, and unlimited scalability for the most demanding business applications.
                     </p>
                     <div class="hero-actions">
-                        <a href="#api" class="btn btn-primary">Explore Platform</a>
-                        <a href="#technology" class="btn">Technical Overview</a>
+                        <a href="#" class="btn btn-primary" onclick="showPage('api')">Explore Live Demo</a>
+                        <a href="#" class="btn" onclick="showPage('technology')">Technology Overview</a>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <canvas id="hero-canvas"></canvas>
+            </div>
+        </section>
+
+        <section class="metrics-section">
+            <div class="container">
+                <div class="metrics-grid">
+                    <div class="metric-card fade-in">
+                        <div class="metric-value" data-target="125000">0</div>
+                        <div class="metric-label">Transactions per Second</div>
+                    </div>
+                    <div class="metric-card fade-in">
+                        <div class="metric-value" data-target="85">0</div>
+                        <div class="metric-label">Block Time (ms)</div>
+                    </div>
+                    <div class="metric-card fade-in">
+                        <div class="metric-value" data-target="99.97">0</div>
+                        <div class="metric-label">Network Uptime (%)</div>
+                    </div>
+                    <div class="metric-card fade-in">
+                        <div class="metric-value" data-target="256">0</div>
+                        <div class="metric-label">Security Level (bit)</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Metrics Section -->
-    <section class="metrics">
-        <div class="container">
-            <div class="metrics-grid">
-                <div class="metric-card fade-in">
-                    <div class="metric-value" data-target="125000">0</div>
-                    <div class="metric-label">Transactions per Second</div>
+        <section class="container">
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">AI Consensus Engine</h3>
+                    <p class="feature-description">
+                        Machine learning algorithms dynamically optimize consensus mechanisms based on real-time 
+                        network conditions for optimal performance.
+                    </p>
                 </div>
-                <div class="metric-card fade-in">
-                    <div class="metric-value" data-target="85">0</div>
-                    <div class="metric-label">Block Time (ms)</div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title">Quantum-Resistant Security</h3>
+                    <p class="feature-description">
+                        Post-quantum cryptographic algorithms provide future-proof protection against both 
+                        classical and quantum computing attacks.
+                    </p>
                 </div>
-                <div class="metric-card fade-in">
-                    <div class="metric-value" data-target="99.97">0</div>
-                    <div class="metric-label">Network Uptime (%)</div>
-                </div>
-                <div class="metric-card fade-in">
-                    <div class="metric-value" data-target="256">0</div>
-                    <div class="metric-label">Security Level (bit)</div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Unlimited Scalability</h3>
+                    <p class="feature-description">
+                        Advanced sharding and parallel processing enable horizontal scaling without 
+                        compromising security or decentralization.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Technology Section -->
-    <section id="technology" class="technology">
+    <!-- Technology Page -->
+    <div id="technology" class="page">
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Advanced Technology Stack</h2>
@@ -572,66 +853,138 @@
                     Breakthrough innovations in blockchain architecture and consensus mechanisms
                 </p>
             </div>
-            <div class="tech-grid">
-                <div class="tech-card fade-in">
-                    <h3 class="tech-title">AI Consensus Engine</h3>
-                    <p class="tech-description">
-                        Machine learning algorithms dynamically optimize consensus mechanisms 
-                        based on real-time network conditions, achieving optimal balance between 
-                        speed, security, and decentralization.
+            
+            <div class="feature-grid">
+                <div class="feature-card slide-in-left">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">AI Consensus Engine</h3>
+                    <p class="feature-description">
+                        Our proprietary AI system continuously analyzes network conditions and automatically 
+                        adjusts consensus parameters to maintain optimal performance across varying loads.
                     </p>
                 </div>
-                <div class="tech-card fade-in">
-                    <h3 class="tech-title">Quantum-Resistant Security</h3>
-                    <p class="tech-description">
-                        Post-quantum cryptographic algorithms provide protection against both 
-                        classical and quantum computing attacks, ensuring long-term security 
-                        for enterprise applications.
+                <div class="feature-card slide-in-right">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title">Quantum-Resistant Security</h3>
+                    <p class="feature-description">
+                        Built with post-quantum cryptographic algorithms including lattice-based encryption 
+                        and hash-based signatures to protect against future quantum attacks.
                     </p>
                 </div>
-                <div class="tech-card fade-in">
-                    <h3 class="tech-title">Scalable Architecture</h3>
-                    <p class="tech-description">
-                        Multi-threaded processing with intelligent sharding enables horizontal 
-                        scaling without compromising security or decentralization principles.
+                <div class="feature-card slide-in-left">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Parallel Processing Architecture</h3>
+                    <p class="feature-description">
+                        Multi-threaded transaction processing with intelligent sharding enables unlimited 
+                        horizontal scaling while maintaining security guarantees.
                     </p>
                 </div>
-                <div class="tech-card fade-in">
-                    <h3 class="tech-title">Enterprise Integration</h3>
-                    <p class="tech-description">
-                        Comprehensive APIs and SDKs enable seamless integration with existing 
-                        enterprise systems and business workflows.
+                <div class="feature-card slide-in-right">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">Global Network Mesh</h3>
+                    <p class="feature-description">
+                        Distributed network topology with intelligent routing optimizes performance based on 
+                        geographic distribution and real-time network conditions.
                     </p>
                 </div>
-                <div class="tech-card fade-in">
-                    <h3 class="tech-title">Real-time Analytics</h3>
-                    <p class="tech-description">
-                        Advanced monitoring and analytics platform provides deep insights into 
-                        network performance and security metrics.
+                <div class="feature-card slide-in-left">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Real-time Analytics</h3>
+                    <p class="feature-description">
+                        Comprehensive monitoring and analytics platform provides deep insights into network 
+                        performance, security metrics, and optimization opportunities.
                     </p>
                 </div>
-                <div class="tech-card fade-in">
-                    <h3 class="tech-title">Governance Framework</h3>
-                    <p class="tech-description">
-                        Sophisticated governance mechanisms enable transparent decision-making 
-                        and seamless protocol upgrades.
+                <div class="feature-card slide-in-right">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Adaptive Governance</h3>
+                    <p class="feature-description">
+                        AI-assisted governance mechanisms enable seamless protocol upgrades and community-driven 
+                        decision making without network disruption.
                     </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- API Demo Section -->
-    <section id="api" class="api-demo">
+    <!-- Performance Page -->
+    <div id="performance" class="page">
         <div class="container">
             <div class="section-header fade-in">
-                <h2 class="section-title">Live Network Metrics</h2>
+                <h2 class="section-title">Performance Metrics</h2>
+                <p class="section-subtitle">
+                    Real-world performance data demonstrating enterprise-grade capabilities
+                </p>
+            </div>
+            
+            <div class="metrics-grid">
+                <div class="metric-card scale-in">
+                    <div class="metric-value" data-target="125000">0</div>
+                    <div class="metric-label">Transactions per Second</div>
+                </div>
+                <div class="metric-card scale-in">
+                    <div class="metric-value" data-target="85">0</div>
+                    <div class="metric-label">Average Block Time (ms)</div>
+                </div>
+                <div class="metric-card scale-in">
+                    <div class="metric-value" data-target="99.97">0</div>
+                    <div class="metric-label">Network Uptime (%)</div>
+                </div>
+                <div class="metric-card scale-in">
+                    <div class="metric-value" data-target="256">0</div>
+                    <div class="metric-label">Quantum Security (bit)</div>
+                </div>
+                <div class="metric-card scale-in">
+                    <div class="metric-value" data-target="247">0</div>
+                    <div class="metric-label">Active Validators</div>
+                </div>
+                <div class="metric-card scale-in">
+                    <div class="metric-value" data-target="165">0</div>
+                    <div class="metric-label">Finality Time (ms)</div>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Linear Scalability</h3>
+                    <p class="feature-description">
+                        Performance scales linearly with network size, maintaining consistent throughput 
+                        and latency regardless of validator count or transaction volume.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Predictable Performance</h3>
+                    <p class="feature-description">
+                        AI consensus engine ensures consistent performance characteristics with minimal 
+                        variance in block times and transaction confirmation speeds.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔧</div>
+                    <h3 class="feature-title">Dynamic Optimization</h3>
+                    <p class="feature-description">
+                        Real-time performance optimization automatically adjusts network parameters 
+                        based on current conditions to maintain peak efficiency.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- API Page -->
+    <div id="api" class="page">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Live Network Demo</h2>
                 <p class="section-subtitle">
                     Real-time performance data from the TriUnity blockchain network
                 </p>
             </div>
-            <div class="demo-container fade-in">
-                <div class="metrics-live" id="live-metrics">
+            
+            <div class="api-demo scale-in">
+                <div class="live-metrics" id="live-metrics">
                     <div class="live-metric">
                         <div class="live-value" id="live-tps">Loading</div>
                         <div class="live-label">Current TPS</div>
@@ -665,21 +1018,124 @@
                     </button>
                 </div>
             </div>
+
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📡</div>
+                    <h3 class="feature-title">Real-time Monitoring</h3>
+                    <p class="feature-description">
+                        Comprehensive real-time monitoring of all network metrics including transaction 
+                        throughput, validator status, and consensus performance.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Performance Analytics</h3>
+                    <p class="feature-description">
+                        Advanced analytics platform providing detailed insights into network performance 
+                        trends and optimization opportunities.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">Network Transparency</h3>
+                    <p class="feature-description">
+                        Complete transparency into network operations with public metrics and 
+                        verifiable performance data available to all stakeholders.
+                    </p>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Get in Touch</h2>
+                <p class="section-subtitle">
+                    Ready to revolutionize your blockchain infrastructure? Let's discuss your needs.
+                </p>
+            </div>
+            
+            <div class="contact-form scale-in">
+                <form onsubmit="handleContactForm(event)">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Full Name</label>
+                        <input type="text" class="form-input" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address</label>
+                        <input type="email" class="form-input" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="company">Company</label>
+                        <input type="text" class="form-input" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="subject">Subject</label>
+                        <select class="form-input" id="subject" name="subject" required>
+                            <option value="">Select a topic</option>
+                            <option value="enterprise">Enterprise Solutions</option>
+                            <option value="partnership">Partnership Opportunities</option>
+                            <option value="technical">Technical Questions</option>
+                            <option value="demo">Request Demo</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea class="form-input form-textarea" id="message" name="message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🏢</div>
+                    <h3 class="feature-title">Enterprise Solutions</h3>
+                    <p class="feature-description">
+                        Custom blockchain infrastructure solutions designed for large-scale enterprise 
+                        applications with dedicated support and SLA guarantees.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🤝</div>
+                    <h3 class="feature-title">Partnership Program</h3>
+                    <p class="feature-description">
+                        Join our partner ecosystem to integrate TriUnity technology into your products 
+                        and services with comprehensive technical and marketing support.
+                    </p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💡</div>
+                    <h3 class="feature-title">Innovation Labs</h3>
+                    <p class="feature-description">
+                        Collaborate with our research team to develop next-generation blockchain solutions 
+                        and explore cutting-edge applications of our technology.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer id="contact" class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-links">
-                <a href="#documentation">Documentation</a>
-                <a href="#whitepaper">Whitepaper</a>
-                <a href="#enterprise">Enterprise</a>
-                <a href="#support">Support</a>
-                <a href="#legal">Legal</a>
+                <a href="#" class="footer-link" onclick="showPage('home')">Home</a>
+                <a href="#" class="footer-link" onclick="showPage('technology')">Technology</a>
+                <a href="#" class="footer-link" onclick="showPage('performance')">Performance</a>
+                <a href="#" class="footer-link" onclick="showPage('api')">API</a>
+                <a href="#" class="footer-link" onclick="showPage('contact')">Contact</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
             </div>
             <p class="footer-text">
-                &copy; 2024 TriUnity Protocol. Enterprise blockchain infrastructure.
+                &copy; 2024 TriUnity Protocol. Advanced blockchain infrastructure for the enterprise.
             </p>
             <p class="footer-text">
                 Enterprise: enterprise@triunity.dev | Support: support@triunity.dev
@@ -689,10 +1145,11 @@
 
     <script>
         // Global variables
-        let heroScene, heroRenderer, heroCamera;
-        let heroAnimationId;
+        let backgroundScene, backgroundRenderer, backgroundCamera;
+        let backgroundAnimationId;
         let autoRefreshInterval;
         let isAutoRefreshEnabled = false;
+        let currentPage = 'home';
 
         // Initialize website
         document.addEventListener('DOMContentLoaded', function() {
@@ -700,127 +1157,205 @@
         });
 
         function initializeWebsite() {
-            initHeader();
-            initHero3D();
+            initNavbar();
+            initBackground3D();
             initIntersectionObserver();
             initCounterAnimations();
             initLiveMetrics();
-            initSmoothScrolling();
+            initPageSystem();
         }
 
-        // Header scroll effect
-        function initHeader() {
-            const header = document.getElementById('header');
+        // Advanced Navigation System
+        function initNavbar() {
+            const navbar = document.getElementById('navbar');
             
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
+                    navbar.classList.add('scrolled');
                 } else {
-                    header.classList.remove('scrolled');
+                    navbar.classList.remove('scrolled');
                 }
             });
         }
 
-        // 3D Hero Visualization
-        function initHero3D() {
-            const canvas = document.getElementById('hero-canvas');
+        // Page System with Smooth Transitions
+        function initPageSystem() {
+            // Set initial page
+            showPage('home');
+        }
+
+        function showPage(pageId) {
+            // Update navigation active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-page') === pageId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show target page with delay for smooth transition
+            setTimeout(() => {
+                document.getElementById(pageId).classList.add('active');
+                currentPage = pageId;
+                
+                // Trigger animations for new page
+                triggerPageAnimations(pageId);
+                
+                // Re-initialize counter animations for performance page
+                if (pageId === 'performance') {
+                    setTimeout(() => initCounterAnimations(), 300);
+                }
+                
+                // Initialize live metrics for API page
+                if (pageId === 'api') {
+                    setTimeout(() => initLiveMetrics(), 300);
+                }
+            }, 150);
+
+            // Prevent default link behavior
+            event?.preventDefault();
+            return false;
+        }
+
+        function triggerPageAnimations(pageId) {
+            const page = document.getElementById(pageId);
+            const animatedElements = page.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            
+            animatedElements.forEach((element, index) => {
+                element.classList.remove('visible');
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, index * 100);
+            });
+        }
+
+        // Advanced 3D Background System
+        function initBackground3D() {
+            const canvas = document.getElementById('background-canvas');
             if (!canvas) return;
 
-            heroScene = new THREE.Scene();
-            heroCamera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-            heroRenderer = new THREE.WebGLRenderer({ 
+            backgroundScene = new THREE.Scene();
+            backgroundCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            backgroundRenderer = new THREE.WebGLRenderer({ 
                 canvas: canvas, 
                 antialias: true, 
                 alpha: true 
             });
             
-            heroRenderer.setSize(canvas.clientWidth, canvas.clientHeight);
-            heroRenderer.setClearColor(0x000000, 0);
+            backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
+            backgroundRenderer.setClearColor(0x000000, 0);
 
-            // Create geometric network
-            const geometry = new THREE.BoxGeometry(1, 1, 1);
-            const nodes = [];
-            
-            // Create nodes
-            for (let i = 0; i < 6; i++) {
+            // Create floating geometric shapes
+            const shapes = [];
+            const geometries = [
+                new THREE.OctahedronGeometry(1, 0),
+                new THREE.TetrahedronGeometry(1.2, 0),
+                new THREE.IcosahedronGeometry(0.8, 0),
+                new THREE.DodecahedronGeometry(0.9, 0)
+            ];
+
+            // Create multiple floating shapes
+            for (let i = 0; i < 15; i++) {
+                const geometry = geometries[Math.floor(Math.random() * geometries.length)];
                 const material = new THREE.MeshBasicMaterial({ 
-                    color: i % 2 === 0 ? 0x0052cc : 0x4a90e2,
+                    color: new THREE.Color().setHSL(
+                        0.6 + Math.random() * 0.2, // Blue to purple range
+                        0.7 + Math.random() * 0.3,
+                        0.4 + Math.random() * 0.3
+                    ),
                     wireframe: true,
                     transparent: true,
-                    opacity: 0.8
+                    opacity: 0.1 + Math.random() * 0.2
                 });
                 
-                const node = new THREE.Mesh(geometry, material);
+                const shape = new THREE.Mesh(geometry, material);
                 
-                const angle = (i / 6) * Math.PI * 2;
-                const radius = 3;
-                node.position.set(
-                    Math.cos(angle) * radius,
-                    Math.sin(angle) * radius * 0.5,
-                    (Math.random() - 0.5) * 2
+                // Random positioning
+                shape.position.set(
+                    (Math.random() - 0.5) * 100,
+                    (Math.random() - 0.5) * 100,
+                    (Math.random() - 0.5) * 100
                 );
                 
-                node.userData = { 
-                    originalPosition: node.position.clone(),
-                    speed: Math.random() * 0.01 + 0.005
+                // Random rotation speeds
+                shape.userData = {
+                    rotationSpeed: {
+                        x: (Math.random() - 0.5) * 0.02,
+                        y: (Math.random() - 0.5) * 0.02,
+                        z: (Math.random() - 0.5) * 0.02
+                    },
+                    floatSpeed: Math.random() * 0.01 + 0.005,
+                    floatRange: Math.random() * 20 + 10
                 };
                 
-                heroScene.add(node);
-                nodes.push(node);
+                backgroundScene.add(shape);
+                shapes.push(shape);
             }
 
-            // Create connections
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    if (Math.random() > 0.4) {
-                        const lineMaterial = new THREE.LineBasicMaterial({ 
-                            color: 0x4a90e2, 
-                            transparent: true, 
-                            opacity: 0.3 
-                        });
-                        
-                        const lineGeometry = new THREE.BufferGeometry().setFromPoints([
-                            nodes[i].position,
-                            nodes[j].position
-                        ]);
-                        
-                        const line = new THREE.Line(lineGeometry, lineMaterial);
-                        heroScene.add(line);
-                    }
-                }
+            // Create particle system
+            const particleGeometry = new THREE.BufferGeometry();
+            const particleCount = 200;
+            const positions = new Float32Array(particleCount * 3);
+            
+            for (let i = 0; i < particleCount * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 200;
             }
+            
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            
+            const particleMaterial = new THREE.PointsMaterial({
+                color: 0x6366f1,
+                size: 0.5,
+                transparent: true,
+                opacity: 0.3
+            });
+            
+            const particles = new THREE.Points(particleGeometry, particleMaterial);
+            backgroundScene.add(particles);
 
-            heroCamera.position.z = 8;
+            backgroundCamera.position.z = 50;
 
-            function animateHero() {
-                heroAnimationId = requestAnimationFrame(animateHero);
+            function animateBackground() {
+                backgroundAnimationId = requestAnimationFrame(animateBackground);
 
-                nodes.forEach((node, index) => {
-                    node.rotation.x += node.userData.speed;
-                    node.rotation.y += node.userData.speed * 0.7;
+                const time = Date.now() * 0.001;
+
+                // Animate shapes
+                shapes.forEach((shape, index) => {
+                    // Rotation
+                    shape.rotation.x += shape.userData.rotationSpeed.x;
+                    shape.rotation.y += shape.userData.rotationSpeed.y;
+                    shape.rotation.z += shape.userData.rotationSpeed.z;
                     
-                    const time = Date.now() * 0.001;
-                    node.position.y = node.userData.originalPosition.y + 
-                                     Math.sin(time + index) * 0.3;
+                    // Floating motion
+                    shape.position.y += Math.sin(time * shape.userData.floatSpeed + index) * 0.1;
+                    shape.position.x += Math.cos(time * shape.userData.floatSpeed + index) * 0.05;
                 });
 
-                const time = Date.now() * 0.0002;
-                heroCamera.position.x = Math.sin(time) * 1;
-                heroCamera.lookAt(0, 0, 0);
+                // Animate particles
+                particles.rotation.y += 0.0005;
+                particles.rotation.x += 0.0003;
 
-                heroRenderer.render(heroScene, heroCamera);
+                // Dynamic camera movement
+                backgroundCamera.position.x = Math.sin(time * 0.0003) * 10;
+                backgroundCamera.position.y = Math.cos(time * 0.0002) * 5;
+                backgroundCamera.lookAt(0, 0, 0);
+
+                backgroundRenderer.render(backgroundScene, backgroundCamera);
             }
 
-            animateHero();
+            animateBackground();
 
             // Handle resize
             window.addEventListener('resize', () => {
-                const newWidth = canvas.clientWidth;
-                const newHeight = canvas.clientHeight;
-                
-                heroCamera.aspect = newWidth / newHeight;
-                heroCamera.updateProjectionMatrix();
-                heroRenderer.setSize(newWidth, newHeight);
+                backgroundCamera.aspect = window.innerWidth / window.innerHeight;
+                backgroundCamera.updateProjectionMatrix();
+                backgroundRenderer.setSize(window.innerWidth, window.innerHeight);
             });
         }
 
@@ -839,7 +1374,7 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.fade-in').forEach(el => {
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
                 observer.observe(el);
             });
         }
@@ -858,7 +1393,9 @@
             }, { threshold: 0.5 });
 
             document.querySelectorAll('.metric-card').forEach(card => {
-                counterObserver.observe(card);
+                if (card.closest('.page.active')) {
+                    counterObserver.observe(card);
+                }
             });
         }
 
@@ -880,9 +1417,11 @@
             }, 20);
         }
 
-        // Live Metrics
+        // Live Metrics System
         function initLiveMetrics() {
-            fetchMetrics();
+            if (currentPage === 'api') {
+                fetchMetrics();
+            }
         }
 
         async function fetchMetrics() {
@@ -996,26 +1535,46 @@
             }
         }
 
-        // Smooth scrolling
-        function initSmoothScrolling() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
+        // Contact form handler
+        function handleContactForm(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                submitButton.textContent = 'Message Sent!';
+                setTimeout(() => {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                    form.reset();
+                }, 2000);
+            }, 1500);
         }
 
         // Cleanup
         window.addEventListener('beforeunload', () => {
-            if (heroAnimationId) cancelAnimationFrame(heroAnimationId);
+            if (backgroundAnimationId) cancelAnimationFrame(backgroundAnimationId);
             if (autoRefreshInterval) clearInterval(autoRefreshInterval);
+        });
+
+        // Add mouse interaction effects
+        document.addEventListener('mousemove', (e) => {
+            const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            const mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+            
+            if (backgroundCamera) {
+                backgroundCamera.position.x += (mouseX * 5 - backgroundCamera.position.x) * 0.01;
+                backgroundCamera.position.y += (mouseY * 5 - backgroundCamera.position.y) * 0.01;
+            }
         });
     </script>
 </body>
